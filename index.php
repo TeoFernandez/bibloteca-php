@@ -10,9 +10,9 @@
     <p>Bienvenido a la biblioteca</p>
     
     <p><a href="administracionDeUsuarios.php">Usuarios</a></p>
-    <p><a href="prestamos.php">Prestamos</a></p>
-    <p><a href="libros.php">Libros</a></p>
-    <p><a href="productos.php">Productos</a></p>
+    <p><a href="prestamos/prestamos.php">Prestamos</a></p>
+    <p><a href="libros/libros.php">Libros</a></p>
+    <p><a href="productos/productos.php">Productos</a></p>
     <p><a href="logout.php">Cerrar sesión</a></p>
 </body>
 </html>
