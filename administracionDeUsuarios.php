@@ -26,9 +26,9 @@ if (isset($_POST["crear"])) {
     // Verifica que los campos no estén vacíos antes de insertar en la base de datos
     if (!empty($usuario) && !empty($clave)) {
         // Prepara la consulta SQL para insertar un nuevo usuario
-        $sql = "INSERT INTO usuarios (usuario, clave) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO usuario (usuario, clave) VALUES (?, ?)";
         $stmt = $conn->prepare($sql); // Prepara la consulta
-        $stmt->bind_param("sss", $usuario, $clave); // Vincula los parámetros
+        $stmt->bind_param($usuario, $clave); // Vincula los parámetros
         $stmt->execute(); // Ejecuta la consulta
     }
 }
@@ -42,7 +42,7 @@ if (isset($_POST["eliminar"])) {
     // Verifica que el ID no esté vacío antes de eliminar
     if (!empty($idEliminar)) {
         // Prepara la consulta SQL para eliminar un usuario por su ID
-        $sql = "DELETE FROM usuarios WHERE id = ?";
+        $sql = "DELETE FROM usuario WHERE id = ?";
         $stmt = $conn->prepare($sql); // Prepara la consulta
         $stmt->bind_param("i", $idEliminar); // Vincula el parámetro
         $stmt->execute(); // Ejecuta la consulta
@@ -60,7 +60,7 @@ if (isset($_POST["editar"])) {
     // Verifica que los campos no estén vacíos antes de actualizar
     if (!empty($idEditar) && !empty($nuevoUsuario) && !empty($nuevaClave) ) {
         // Prepara la consulta SQL para actualizar los datos del usuario
-        $sql = "UPDATE usuarios SET usuario = ?, clave = ?, rol = ? WHERE id = ?";
+        $sql = "UPDATE usuario SET usuario = ?, clave = ?, rol = ? WHERE id = ?";
         $stmt = $conn->prepare($sql); // Prepara la consulta
         $stmt->bind_param("sssi", $nuevoUsuario, $nuevaClave, $idEditar); // Vincula los parámetros
         $stmt->execute(); // Ejecuta la consulta
@@ -69,7 +69,7 @@ if (isset($_POST["editar"])) {
 
 // --- OBTENER TODOS LOS USUARIOS ---
 // Realiza una consulta para obtener todos los usuarios de la base de datos
-$usuarios = $conn->query("SELECT * FROM usuarios");
+$usuarios = $conn->query("SELECT * FROM usuario");
 ?>
 
 <!-- TÍTULO DE LA PÁGINA -->

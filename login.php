@@ -1,37 +1,22 @@
 <?php
-// PARTE 1: Iniciar sesión y conectar a la base de datos
-
-// Inicia una nueva sesión o reanuda la sesión existente
 session_start();
 
-// Incluye el archivo de conexión a la base de datos
-// Este archivo debe contener la configuración necesaria para conectarse a la base de datos
 include("bdconect.php");
 
-// PARTE 2: Procesar formulario de login
-
-// Verifica si el formulario fue enviado mediante el método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtiene los valores enviados desde el formulario
-    // Si no se envían, se asigna una cadena vacía como valor predeterminado
     $usuario = $_POST["usuario"] ?? '';
     $clave = $_POST["clave"] ?? '';
 
-    // Prepara una consulta SQL para buscar al usuario en la base de datos
-    // Utiliza parámetros preparados para evitar inyecciones SQL
-    $sql = "SELECT * FROM usuarios WHERE usuario=? AND clave=?";
+    $sql = "SELECT * FROM usuario WHERE usuario=? AND clave=?";
     $stmt = $conn->prepare($sql); // Prepara la consulta
     $stmt->bind_param("ss", $usuario, $clave); // Vincula los parámetros (usuario y clave)
     $stmt->execute(); // Ejecuta la consulta
     $resultado = $stmt->get_result(); // Obtiene el resultado de la consulta
 
-    // Verifica si se encontró un usuario con las credenciales proporcionadas
     if ($resultado->num_rows == 1) {
-        // Si las credenciales son correctas, guarda el usuario en la sesión
         $_SESSION["usuario"] = $usuario;
 
-        // Redirige al usuario a la página principal
-        header("Location: principal.php");
+        header("Location: index.php");
         exit(); // Finaliza el script para evitar que se ejecute más código
     } else {
         // Si las credenciales son incorrectas, define un mensaje de error
