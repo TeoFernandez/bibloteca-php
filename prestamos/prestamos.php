@@ -13,7 +13,7 @@
     <p>Selecciona una de las siguientes opciones:</p>
     
     <p><a href="newPrestamo.php">Solicitud de nuevo Prestamo</a></p>
-    <p><a href="">Devolucion de prestamo</a></p>
+    <p><a href="devolucionDePrestamo.php">Devolucion de prestamo</a></p>
     <p><a href="">Pendientes</a></p>
     <p><a href="">Historial</a></p>
     
