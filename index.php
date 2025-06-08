@@ -8,6 +8,8 @@
 <body>
     <h1>Inicio</h1>
     <p>Bienvenido a la biblioteca</p>
+    <p>En esta sección podrás gestionar los préstamos de libros y productos.</p>
+    <p>Selecciona una de las siguientes opciones:</p>
     
     <button><a href="administracionDeUsuarios.php">Usuarios</a></button>
     <button><a href="prestamos/prestamos.php">Prestamos</a></button>
