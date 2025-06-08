@@ -18,7 +18,7 @@
     <p><a href="">Historial</a></p>
     
     
-    <p><a href="index.php">Volver</a></p>
+    <p><a href="../index.php">Volver</a></p>
 
 
 </body>
