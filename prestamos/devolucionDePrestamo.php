@@ -8,6 +8,6 @@
 <body>
 
 
-    
+    <p><a href="prestamos.php">Volver</a></p>
 </body>
 </html>

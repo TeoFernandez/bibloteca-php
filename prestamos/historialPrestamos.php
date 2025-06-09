@@ -50,5 +50,7 @@
             <td>Pendiente</td>
         </tr>
     </table>
+
+    <p><a href="prestamos.php">Volver</a></p>
 </body>
 </html>

@@ -31,5 +31,7 @@
         <input type="submit" value="Ingresar Prestamo de Articulo">
     </form>
     </center>
+
+    <p><a href="prestamos.php">Volver</a></p>
 </body>
 </html>
