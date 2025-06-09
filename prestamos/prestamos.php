@@ -7,12 +7,9 @@
 </head>
 <body>
     <h1>Prestamos</h1>
-    <p>Bienvenido a la sección de préstamos</p>
-
-    <p>En esta sección podrás gestionar los préstamos de libros y productos.</p>
-    <p>Selecciona una de las siguientes opciones:</p>
+    <p>Bienvenido a la sección de préstamos. En esta sección podrás gestionar los préstamos de libros y productos.</p>
     
-    <p><a href="">Historial</a></p>
+    <h2>Selecciona una de las siguientes opciones:</h2>
 
     <button><a href="newPrestamo.php">Solicitud de nuevo Prestamo</a></button>
     <button><a href="devolucionDePrestamo.php">Devolucion de prestamo</a></button>
