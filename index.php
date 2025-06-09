@@ -1,4 +1,3 @@
-//solo html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +8,15 @@
 <body>
     <h1>Inicio</h1>
     <p>Bienvenido a la biblioteca</p>
+    <p>En esta sección podrás gestionar los préstamos de libros y productos.</p>
+    <p>Selecciona una de las siguientes opciones:</p>
     
-    <p><a href="administracionDeUsuarios.php">Usuarios</a></p>
-    <p><a href="prestamos/prestamos.php">Prestamos</a></p>
-    <p><a href="libros/libros.php">Libros</a></p>
-    <p><a href="productos/productos.php">Productos</a></p>
-    <p><a href="alumnos/alumnos.php">Alumno</a></p>
-    <p><a href="logout.php">Cerrar sesión</a></p>
+    <button><a href="administracionDeUsuarios.php">Usuarios</a></button>
+    <button><a href="prestamos/prestamos.php">Prestamos</a></button>
+    <button><a href="libros/libros.php">Libros</a></button>
+    <button><a href="articulos/articulos.php">Articulos</a></button>
+    <button><a href="alumnos/alumnos.php">Alumno</a></button>
+    <button><a href="logout.php">Cerrar sesión</a></button>
 
 </body>
 </html>
