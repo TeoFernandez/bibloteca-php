@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Eliminar Libros</title>
 </head>
 <body>
-    
     <center>
         <h1>Eliminar Libros</h1>
     </center>
@@ -20,5 +20,9 @@
         <button type="reset">Limpiar Formulario</button>
         <br><br><br>
         <button><a href="libros.php">Volver a la Sección de Libros</a></button>
+    <title>Document</title>
+</head>
+<body>
+    
 </body>
 </html>

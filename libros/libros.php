@@ -17,5 +17,8 @@
     <button><a href="eliminarLibros.php">Eliminar Libros</a></button>
     <br><br><br>
     <button><a href="../index.php">Volver</a></button>
+
+    
+
 </body>
 </html>
