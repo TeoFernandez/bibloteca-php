@@ -28,6 +28,9 @@
         <input type="text" id="numeroInventario" name="numeroInventario" required><br><br>
 
         <button type="submit">Guardar Articulo</button>
+        <br><br><br>
+
+        <button><a href="articulos.php">Volver</a></button>
     
 </body>
 </html>
