@@ -14,7 +14,7 @@
     <button><a href="administracionDeUsuarios.php">Usuarios</a></button>
     <button><a href="prestamos/prestamos.php">Prestamos</a></button>
     <button><a href="libros/libros.php">Libros</a></button>
-    <button><a href="productos/productos.php">Productos</a></button>
+    <button><a href="articulos/articulos.php">Articulos</a></button>
     <button><a href="alumnos/alumnos.php">Alumno</a></button>
     <button><a href="logout.php">Cerrar sesión</a></button>
 
