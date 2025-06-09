@@ -22,6 +22,7 @@
             <!-- Aquí se agregarían dinámicamente los préstamos del alumno -->
         <br>
         <input type="submit" value="Devolver Libro">
+    </center>
 
     <p><a href="prestamos.php">Volver</a></p>
 </body>
