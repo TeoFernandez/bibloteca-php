@@ -7,7 +7,18 @@
 </head>
 <body>
     <h1>Usuarios</h1>
-    <p>Bienvenidos a la seccion de usuarios,en esta </p>
+    <p>Bienvenidos a la seccion de usuarios. Aquí podrás gestionar la información de los alumnos.</p>
+    
+    <h2>Selecciona una de las siguientes opciones:</h2>
+
+    <button><a href="crearUsuario.php">Crear nuevo usuario</a></button>
+    <button><a href="editarUsuario.php">Editar usuario</a></button>
+    <button><a href="eliminarUsuario.php">Eliminar usuario</a></button>
+
+    <p><a href="../index.php">Volver</a></p>
+
+
+    
     
 </body>
 </html>
