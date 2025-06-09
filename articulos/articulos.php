@@ -12,7 +12,7 @@
 
     <h2>Funciones disponibles:</h2>
 
-    <button><a href="ingresarArticulos.php">Ingresar Nuevos Articulos</a></button>
+    <button><a href="ingresarArticulo.php">Ingresar Nuevos Articulos</a></button>
     <button><a href="editarArticulos.php">Editar Articulos</a></button>
     <button><a href="eliminarArticulos.php">Eliminar Articulos</a></button>
     <br><br><br>
