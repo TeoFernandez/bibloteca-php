@@ -13,14 +13,23 @@
     <h2>Prestamo de Libros</h2>
     <center>
     <form method="POST" action="">
-        Titulo: <input type="text" ><br>
+        Numero de Inventario: <input type="text" ><br>
         <br>
-        Editorial: <input type="text" name="clave"><br>
-        
-        <input type="submit" value="Dar de Alta Prestamo">
+        DNI del Alumno: <input type="text"><br>
+        <br>
+        <input type="submit" value="Ingresar Prestamo de Libro">
     </form>
     </center>
 
     <h2>Prestamo de Articulo</h2>
+    <center>
+    <form method="POST" action="">
+        Numero de Inventario: <input type="text" ><br>
+        <br>
+        DNI del Alumno: <input type="text"><br>
+        <br>
+        <input type="submit" value="Ingresar Prestamo de Articulo">
+    </form>
+    </center>
 </body>
 </html>
