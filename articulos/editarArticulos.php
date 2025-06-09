@@ -8,7 +8,7 @@
 <body>
 
     <center>
-    <h1>editar Articulos</h1>
+    <h1>Editar Articulos</h1>
     </center>
 
 
