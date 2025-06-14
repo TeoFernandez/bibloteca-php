@@ -12,11 +12,11 @@
     
     <h2>Selecciona una de las siguientes opciones:</h2>
 
-    <button><a href="crearAlumno.php">Crear nuevo alumnos</a></button>
-    <button><a href="editarAlumno.php">Editar alumno</a></button>
-    <button><a href="eliminarAlumno.php">Eliminar alumno</a></button>
+<button onclick="location.href='crearAlumno.php'" class="boton">Crear nuevo alumno</button>
+<button onclick="location.href='editarAlumno.php'" class="boton">Editar alumno</button>
+<button onclick="location.href='eliminarAlumno.php'" class="boton">Eliminar alumno</button>
 
-    <p><a href="../index.php">Volver</a></p>
+<p><a href="../index.php" class="volver">Volver</a></p>
 
 
     

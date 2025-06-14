@@ -1,0 +1,100 @@
+/* Puedes colocar esto en un archivo .css o dentro de <style> en alimnos.php */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Segoe+UI:wght@400;600&display=swap');
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Centra el contenido */
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+    text-align: center; /* Centra el contenido dentro del contenedor */
+}
+
+h1, h2, h3 {
+    color: #2a5298;
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px auto 0 auto;
+    background: #f9fafc;
+    text-align: center; /* Centra el texto en la tabla */
+}
+
+th, td {
+    padding: 18px 14px;
+    text-align: center;
+}
+
+th {
+    background: #2a5298;
+    color: #fff;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: #eaf0fb;
+}
+
+button, .btn {
+    background: #2a5298;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 18px 36px; /* Botones más grandes */
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+button:hover, .btn:hover {
+    background: #1e3c72;
+    transform: scale(1.05);
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 16px 6px;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    th, td {
+        padding: 14px 6px;
+    }
+    th {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    }
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        min-height: 40px;
+        text-align: left;
+    }
+    td:before {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #2a5298;
+        content: attr(data-label);
+    }
+}
