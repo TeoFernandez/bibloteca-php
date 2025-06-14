@@ -45,9 +45,6 @@
         <button type="reset">Limpiar Formulario</button>
         <br><br><br>
         <button><a href="libros.php">Volver a la Sección de Libros</a></button>
-    <title>Document</title>
-</head>
-<body>
-    
+    </form>
 </body>
 </html>
