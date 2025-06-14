@@ -1,0 +1,114 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    color: #2a5298;
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin-bottom: 24px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+p {
+    color: #2a5298;
+    margin-bottom: 32px;
+    font-size: 1.1rem;
+}
+
+h2 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: #2a5298;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #2a5298;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #e1e5ed;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border: 1px solid #2a5298;
+    box-shadow: 0 0 6px #2a529860;
+    outline: none;
+}
+
+button, input[type="submit"], input[type="reset"] {
+    background: #2a5298;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 28px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+    margin: 10px 5px 0 0;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background: #1e3c72;
+    transform: scale(1.05);
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 500px) {
+    form {
+        padding: 20px 12px;
+    }
+    input, select {
+        padding: 12px;
+    }
+    button, input[type="submit"], input[type="reset"] {
+        font-size: 1rem;
+        padding: 14px 22px;
+    }
+}
+
+/*
+    This CSS file styles the form for editing books in a library management system.
+    It includes responsive design for better usability on smaller screens.
+*/
+
+
