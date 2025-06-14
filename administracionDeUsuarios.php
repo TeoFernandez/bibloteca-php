@@ -2,135 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Administracion de Usuarios</title>
-        <link rel="stylesheet" href="styles/administracion.css">
-
+    <link rel="stylesheet" href="Usuarios.css">
 </head>
 <body>
+    <div class="container">
+        <h2>Administracion de Usuarios</h2>
 
-<?php
-// Inicia una nueva sesión o reanuda la sesión existente
-session_start();
+        <?php
+        // Inicia o continúa la sesión
+        session_start();
 
-// Incluye el archivo de conexión a la base de datos
-// Este archivo debe contener la configuración necesaria para conectarse a la base de datos
-include("bdconect.php");
+        // Incluye la conexión
+        include("bdconect.php");
 
-// --- CREAR USUARIO ---
-// Verifica si se envió el formulario para crear un nuevo usuario
-if (isset($_POST["crear"])) {
-    // Obtiene los valores enviados desde el formulario
-    $usuario = $_POST["nuevo_usuario"] ?? '';
-    $clave = $_POST["nueva_clave"] ?? '';
+        // --- CREAR USUARIO --- 
+        if (isset($_POST["crear"])) {
+            $usuario = $_POST["nuevo_usuario"] ?? '';
+            $clave = $_POST["nueva_clave"] ?? '';
+            if (!empty($usuario) && !empty($clave)) {
+                $sql = "INSERT INTO usuario (usuario, clave) VALUES (?, ?)";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("ss", $usuario, $clave);
+                $stmt->execute();
+            }
+        }
 
-    // Verifica que los campos no estén vacíos antes de insertar en la base de datos
-    if (!empty($usuario) && !empty($clave)) {
-        // Prepara la consulta SQL para insertar un nuevo usuario
-        $sql = "INSERT INTO usuario (usuario, clave) VALUES (?, ?)";
-        $stmt = $conn->prepare($sql); // Prepara la consulta
-        $stmt->bind_param($usuario, $clave); // Vincula los parámetros
-        $stmt->execute(); // Ejecuta la consulta
-    }
-}
+        // --- ELIMINAR USUARIO --- 
+        if (isset($_POST["eliminar"])) {
+            $idEliminar = $_POST["id_eliminar"] ?? '';
+            if (!empty($idEliminar)) {
+                $sql = "DELETE FROM usuario WHERE id = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("i", $idEliminar);
+                $stmt->execute();
+            }
+        }
 
-// --- ELIMINAR USUARIO ---
-// Verifica si se envió el formulario para eliminar un usuario
-if (isset($_POST["eliminar"])) {
-    // Obtiene el ID del usuario a eliminar desde el formulario
-    $idEliminar = $_POST["id_eliminar"] ?? '';
+        // --- EDITAR USUARIO --- 
+        if (isset($_POST["editar"])) {
+            $idEditar = $_POST["id_editar"] ?? '';
+            $nuevoUsuario = $_POST["usuario_editado"] ?? '';
+            $nuevaClave = $_POST["clave_editada"] ?? '';
+            if (!empty($idEditar) && !empty($nuevoUsuario) && !empty($nuevaClave)) {
+                $sql = "UPDATE usuario SET usuario = ?, clave = ? WHERE id = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("ssi", $nuevoUsuario, $nuevaClave, $idEditar);
+                $stmt->execute();
+            }
+        }
 
-    // Verifica que el ID no esté vacío antes de eliminar
-    if (!empty($idEliminar)) {
-        // Prepara la consulta SQL para eliminar un usuario por su ID
-        $sql = "DELETE FROM usuario WHERE id = ?";
-        $stmt = $conn->prepare($sql); // Prepara la consulta
-        $stmt->bind_param("i", $idEliminar); // Vincula el parámetro
-        $stmt->execute(); // Ejecuta la consulta
-    }
-}
+        // --- OBTENER USUARIOS --- 
+        $usuarios = $conn->query("SELECT * FROM usuario");
 
-// --- EDITAR USUARIO ---
-// Verifica si se envió el formulario para editar un usuario
-if (isset($_POST["editar"])) {
-    // Obtiene los valores enviados desde el formulario
-    $idEditar = $_POST["id_editar"] ?? '';
-    $nuevoUsuario = $_POST["usuario_editado"] ?? '';
-    $nuevaClave = $_POST["clave_editada"] ?? '';
+        ?>
 
-    // Verifica que los campos no estén vacíos antes de actualizar
-    if (!empty($idEditar) && !empty($nuevoUsuario) && !empty($nuevaClave) ) {
-        // Prepara la consulta SQL para actualizar los datos del usuario
-        $sql = "UPDATE usuario SET usuario = ?, clave = ?, rol = ? WHERE id = ?";
-        $stmt = $conn->prepare($sql); // Prepara la consulta
-        $stmt->bind_param("sssi", $nuevoUsuario, $nuevaClave, $idEditar); // Vincula los parámetros
-        $stmt->execute(); // Ejecuta la consulta
-    }
-}
+        <!-- FORMULARIO: ALTA -->
+        <h3>Dar de alta un nuevo usuario</h3>
+        <form method="POST">
+            <input type="text" name="nuevo_usuario" placeholder="Usuario" required>
+            <input type="password" name="nueva_clave" placeholder="Clave" required>
+            <input type="submit" name="crear" value="Crear">
+        </form>
 
-// --- OBTENER TODOS LOS USUARIOS ---
-// Realiza una consulta para obtener todos los usuarios de la base de datos
-$usuarios = $conn->query("SELECT * FROM usuario");
-?>
+        <!-- FORMULARIO: ELIMINAR -->
+        <h3>Eliminar un usuario</h3>
+        <form method="POST">
+            <input type="number" name="id_eliminar" placeholder="ID de Usuario" required>
+            <input type="submit" name="eliminar" value="Eliminar">
+        </form>
 
-<!-- TÍTULO DE LA PÁGINA -->
-<h2>Administración de Usuarios</h2>
+        <!-- FORMULARIO: EDITAR -->
+        <h3>Editar un usuario</h3>
+        <form method="POST">
+            <input type="number" name="id_editar" placeholder="ID de Usuario" required>
+            <input type="text" name="usuario_editado" placeholder="Nuevo nombre de Usuario" required>
+            <input type="password" name="clave_editada" placeholder="Nueva Clave" required>
+            <input type="submit" name="editar" value="Editar">
+        </form>
 
-<!-- FORMULARIO: ALTA -->
-<h3>Dar de alta un nuevo usuario</h3>
-<form method="POST">
-    <!-- Campo para ingresar el nombre de usuario -->
-    Usuario: <input type="text" name="nuevo_usuario"><br>
-    <!-- Campo para ingresar la contraseña -->
-    Clave: <input type="password" name="nueva_clave"><br>
-    <!-- Botón para enviar el formulario -->
-    <input type="submit" name="crear" value="Crear">
-</form>
-
-<!-- FORMULARIO: ELIMINAR -->
-<h3>Eliminar un usuario</h3>
-<form method="POST">
-    <!-- Campo para ingresar el ID del usuario a eliminar -->
-    ID de usuario: <input type="number" name="id_eliminar">
-    <!-- Botón para enviar el formulario -->
-    <input type="submit" name="eliminar" value="Eliminar">
-</form>
-
-<!-- FORMULARIO: EDITAR -->
-<h3>Editar un usuario</h3>
-<form method="POST">
-    <!-- Campo para ingresar el ID del usuario a editar -->
-    ID de usuario: <input type="number" name="id_editar"><br>
-    <!-- Campo para ingresar el nuevo nombre de usuario -->
-    Nuevo usuario: <input type="text" name="usuario_editado"><br>
-    <!-- Campo para ingresar la nueva contraseña -->
-    Nueva clave: <input type="password" name="clave_editada"><br>
-    <!-- Botón para enviar el formulario -->
-    <input type="submit" name="editar" value="Editar">
-</form>
-
-<!-- TABLA DE USUARIOS -->
-<h3>Lista de usuarios actuales</h3>
-<table border="1">
-    <tr>
-        <!-- Encabezados de la tabla -->
-        <th>ID</th>
-        <th>Usuario</th>
-        <th>Clave</th>
-    </tr>
-    <!-- Itera sobre los resultados de la consulta y muestra cada usuario en una fila -->
-    <?php while ($row = $usuarios->fetch_assoc()): ?>
-    <tr>
-        <!-- Escapa los valores para evitar inyecciones XSS -->
-        <td><?= htmlspecialchars($row["id"]) ?></td>
-        <td><?= htmlspecialchars($row["usuario"]) ?></td>
-        <td><?= htmlspecialchars($row["clave"]) ?></td>
-    </tr>
-    <?php endwhile; ?>
-
-    <footer> </footer>
-</table>
-
-    
+        <!-- LISTA DE USUARIOS -->
+        <h3>Lista de Usuarios Actuales</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Clave</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = $usuarios->fetch_assoc()) { ?>
+                    <tr>
+                        <td><?= htmlspecialchars($row["id"]) ?></td>
+                        <td><?= htmlspecialchars($row["usuario"]) ?></td>
+                        <td><?= htmlspecialchars($row["clave"]) ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div><!-- .container -->
 </body>
 </html>

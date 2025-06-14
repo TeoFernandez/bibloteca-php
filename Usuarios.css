@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Segoe+UI:wght@400;600&display=swap');
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #2a5298;
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+form {
+    margin-bottom: 32px;
+    padding: 24px;
+    background: #f9fafc;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="password"] {
+    display: block;
+    margin: 12px auto;
+    padding: 14px;
+    width: 80%;
+    max-width: 400px;
+    font-size: 1.1rem;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    transition: box-shadow 0.2s, border 0.2s;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[type="password"]:focus {
+    outline: none;
+    border: 1px solid #2a5298;
+    box-shadow: 0 0 5px 2px #2a529844;
+}
+
+form input[type="submit"] {
+    background: #2a5298;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 18px 36px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-bottom: 24px;
+}
+
+form input[type="submit"]:hover {
+    background: #1e3c72;
+    transform: scale(1.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px auto 0 auto;
+    background: #f9fafc;
+    text-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 18px 14px;
+    text-align: center;
+}
+
+th {
+    background: #2a5298;
+    color: #fff;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: #eaf0fb;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 16px 6px;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    th, td {
+        padding: 14px 6px;
+    }
+    th {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    }
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        min-height: 40px;
+        text-align: left;
+    }
+    td:before {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #2a5298;
+        content: attr(data-label);
+    }
+}
