@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="styles/login.css">
-
+<link rel="stylesheet" href="login.css">
 <?php
 session_start();
 
@@ -10,41 +9,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $clave = $_POST["clave"] ?? '';
 
     $sql = "SELECT * FROM usuario WHERE usuario=? AND clave=?";
-    $stmt = $conn->prepare($sql); // Prepara la consulta
-    $stmt->bind_param("ss", $usuario, $clave); // Vincula los parámetros (usuario y clave)
-    $stmt->execute(); // Ejecuta la consulta
-    $resultado = $stmt->get_result(); // Obtiene el resultado de la consulta
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $usuario, $clave);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
 
     if ($resultado->num_rows == 1) {
         $_SESSION["usuario"] = $usuario;
-
         header("Location: index.php");
-        exit(); // Finaliza el script para evitar que se ejecute más código
+        exit();
     } else {
-        // Si las credenciales son incorrectas, define un mensaje de error
         $error = "Datos incorrectos";
     }
 }
 ?>
 
-<!-- PARTE 3: Formulario HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
 
-<!-- Muestra un formulario HTML para que el usuario ingrese sus credenciales -->
-<center>
-<form method="POST" action="">
-    Usuario: <input type="text" name="usuario"><br>
-    <br>
-    Clave: <input type="password" name="clave"><br>
-    <input type="submit" value="Ingresar">
-</form>
-</center>
+        <form method="POST" action="">
+            <input type="text" name="usuario" placeholder="Usuario" required>
+            <input type="password" name="clave" placeholder="Clave" required>
+            <br>
+            <input type="submit" value="Ingresar">
+        </form>
 
-<?php
-
-// PARTE 4: Mostrar mensaje de error si existe
-// Verifica si se definió un mensaje de error
-if (isset($error)) {
-    // Muestra el mensaje de error en color rojo
-    echo "<p style='color:red;'>$error</p>";
-}
-?>
+        <?php if (isset($error)): ?>
+            <p class="error"><?= $error ?></p>
+        <?php endif; ?>
+    </div>
+</body>
+</html>
