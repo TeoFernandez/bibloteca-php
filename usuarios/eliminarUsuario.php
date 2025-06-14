@@ -7,7 +7,6 @@
 </head>
 <body>
     <h1>Eliminar Usuario</h1>
-    <p></p>
-    
+    <p>Bienvenido a la seccion de eliminar alumno</p>
 </body>
 </html>
