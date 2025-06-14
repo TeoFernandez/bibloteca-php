@@ -21,6 +21,7 @@
             <option value="prestamo2">Prestamo 2</option>
             <option value="prestamo3">Prestamo 3</option>
             <!-- Aquí se agregarían dinámicamente los préstamos del alumno -->
+        </select>
         <br>
         <input type="submit" value="Devolver Libro">
     </center>
