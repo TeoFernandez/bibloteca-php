@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="styles/styles.css">
+
 <?php
 session_start();
 
