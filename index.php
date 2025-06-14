@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/styles.css">
 
     <title>Inicio</title>
 </head>
@@ -17,7 +17,7 @@
     <button><a href="prestamos/prestamos.php">Prestamos</a></button>
     <button><a href="libros/libros.php">Libros</a></button>
     <button><a href="articulos/articulos.php">Articulos</a></button>
-    <button><a href="alumnos/alumnos.php">Alumno</a></button>
+    <button><a href="alumnos/alumnos.php">Alumnos</a></button>
     <button><a href="logout.php">Cerrar sesión</a></button>
 
 </body>
