@@ -1,0 +1,100 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    color: #2a5298;
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #2a5298;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: #2a5298;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2a5298;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #e1e5ed;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+form input:focus,
+form select:focus {
+    border: 1px solid #2a5298;
+    box-shadow: 0 0 6px #2a529860;
+    outline: none;
+}
+
+button {
+    background: #2a5298;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin: 8px;
+}
+
+button:hover {
+    background: #1e3c72;
+    transform: scale(1.05);
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+@media (max-width: 500px) {
+    form {
+        padding: 16px 12px;
+    }
+    button {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
