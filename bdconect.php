@@ -4,7 +4,6 @@ $host = 'localhost';
 $user = 'root';
 $pass = '';
 $dbname = 'bdbibloteca';
-$dbname = 'bdbibloteca';
 
 // Conexión con el puerto incluido
 $conn = new mysqli($host, $user, $pass, $dbname);
