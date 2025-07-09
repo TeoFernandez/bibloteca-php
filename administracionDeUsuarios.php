@@ -9,6 +9,7 @@
 <body>
 
 <?php
+//
 // Inicia una nueva sesión o reanuda la sesión existente
 session_start();
 
