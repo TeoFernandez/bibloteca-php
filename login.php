@@ -7,7 +7,6 @@ include("bdconect.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST["usuario"] ?? '';
     $clave = $_POST["clave"] ?? '';
-
     $sql = "SELECT * FROM usuario WHERE usuario=? AND clave=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $usuario, $clave);

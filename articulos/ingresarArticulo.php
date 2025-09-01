@@ -22,9 +22,6 @@
         <label for="descripcion">Detalle:</label>
         <textarea id="descripcion" name="descripcion" required></textarea><br><br>
 
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" required><br><br>
-
         <label for="numeroInventario">Número de Inventario:</label>
         <input type="text" id="numeroInventario" name="numeroInventario" required><br><br>
 
