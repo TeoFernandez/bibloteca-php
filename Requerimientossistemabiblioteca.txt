@@ -1,0 +1,7 @@
+       Requerimientos Sistema de bibliotecas (Ingeniería de Software)
+
+                                     Usuarios
+
+Vamos a crear un botón de editar en la misma tabla, cuando se haga click este va a salir una ventana donde van a estar el nombre de usuario y clave, en los inputs ya van a estar los datos para que el usuario solamente tenga que modificarlos o dejarlos igual, esta accion se va a llevar a cabo con el botón modificar que va a estar en la esquina derecha de esta ventana emergente, al hacer click en el botón modificar va a salir una alerta de estas seguro de querer modificar.
+Vamos a crear un botón de eliminar en la misma tabla, cuando se haga click de este va a salir una ventana donde va a estar el id del usuario a eliminar, en la esquina derecha van a estar dos botones eliminar y cancelar, si el usuario presiona el botón eliminar sale una alerta que va a decir, estas seguro de querer eliminar, si el usuario aprieta si, el usuario se elimina si aprieta , se cierra la ventana de alerta y la emergente.
+Vamos a agregar un botón de agregar usuario este va a ser un botón que se va a encontrar en la parte superior de la pantalla fuera de la tabla, en este se va a encontrar los inputs para agregar el nombre de usuario y la clave, en la parte inferior derecha se van a encontrar dos botones el de agregar usuario y el de cancelar, el primero si se presiona se agrega el usuario y el segundo elimina la ventana emergente.
