@@ -2,7 +2,8 @@
 require_once "conexion.php";
 class alumnosmodelo{
     static public function mdlmostraralumnos(){
-        $st = conexion::conectar() -> prepare("SELECT * FROM alumnos");
+        $st = conexion::conectar() -> prepare("SELECT alumnos.dni,alumnos.nombre,alumnos.apellido,carreras.carrera FROM alumnos
+                                            JOIN carreras ON alumnos.carrera=carreras.id_carrera");
         $st -> execute();
         return $st -> fetchAll(PDO::FETCH_ASSOC);
     }

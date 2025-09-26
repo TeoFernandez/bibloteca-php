@@ -1,24 +1,28 @@
 <link rel="stylesheet" href="login.css">
 <?php
-session_start();
 
-include("bdconect.php");
+include("modelo/conexion.php");
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST["usuario"] ?? '';
     $clave = $_POST["clave"] ?? '';
-    $sql = "SELECT * FROM usuario WHERE usuario=? AND clave=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $usuario, $clave);
+    $db = conexion::conectar();
+    $sql = "SELECT * FROM usuarios WHERE usuario = :usuario";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(":usuario", $usuario);
     $stmt->execute();
-    $resultado = $stmt->get_result();
-
-    if ($resultado->num_rows == 1) {
-        $_SESSION["usuario"] = $usuario;
-        header("Location: index.php");
-        exit();
-    } else {
-        $error = "Datos incorrectos";
+    if($stmt ->rowCount() == 1){
+        $usuarioData = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($clave == $usuarioData['clave']){
+            $_SESSION['usuario'] = $usuarioData['usuario'];
+            header("Location: menu/index.php");
+            exit();
+        }else{
+            echo "Contraseña Incorrecta";
+        }
+    }else{
+        echo "Usuario no encontrado";
     }
 }
 ?>

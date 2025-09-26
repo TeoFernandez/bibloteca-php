@@ -1,5 +1,6 @@
 <?php
 require_once "../controlador/alumnoscontrolador.php";
+require_once "../modelo/alumnosmodelo.php";
 
 class alumnos{
     public $dni;
@@ -25,8 +26,18 @@ class alumnos{
         echo json_encode($respuesta);
     }
 }
-if(){
-    
+if(!isset($_POST["accion"])){
+    $respuesta = new alumnos();
+    $respuesta -> mostraralumnos();
+}else{
+    if($_POST["accion"]=="registrar"){
+        $registrar = new alumnos();
+        $registrar -> dni =$_POST["dni"];
+        $registrar -> nombre =$_POST["nombre"];
+        $registrar -> apellido =$_POST["apellido"];
+        $registrar -> carrera =$_POST["carrera"];
+        $registrar -> agregaralumnos();
+    }
 }
 
 
