@@ -38,6 +38,19 @@ if(!isset($_POST["accion"])){
         $registrar -> carrera =$_POST["carrera"];
         $registrar -> agregaralumnos();
     }
+    if($_POST["accion"]=="eliminar"){
+        $eliminar = new alumnos();
+        $eliminar -> dni =$_POST["dni"]; ;
+        $eliminar -> eliminaralumnos();
+    }
+    if($_POST["accion"]=="modificar"){
+        $modificar = new alumnos();
+        $modificar -> dni =$_POST["dni"];
+        $modificar -> nombre =$_POST["nombre"];
+        $modificar -> apellido =$_POST["apellido"];
+        $modificar -> carrera =$_POST["carrera"];
+        $modificar -> modificaralumnos();
+    }
 }
 
 

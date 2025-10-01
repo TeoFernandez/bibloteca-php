@@ -33,19 +33,14 @@ class alumnosmodelo{
         }
     }
     static public function mdleliminaralumnos($dni){
-        $st = conexion::conectar() -> prepare("DELETE alumnos WHERE dni=:dni");
+        $st = conexion::conectar() -> prepare("DELETE FROM alumnos WHERE dni=:dni");
         $st -> bindParam(":dni",$dni,PDO::PARAM_INT);
         if($st -> execute()){
             echo "El alumno fue eliminado correctamente";
         }else{
             echo "El alumno no fue eliminado correctamente";
         }
-
-        
-        
     }
-
-
 }
 
 ?>

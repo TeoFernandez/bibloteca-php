@@ -1,5 +1,6 @@
-<?php require_once "../templates/partesuperior.php"; ?>
-    
+<?php
+require_once "../templates/partesuperior.php"; 
+?>
     <h1>Articulos</h1>
     <p>Bienvenido a la sección de artículos. Aquí encontrarás las funciones para la manipulación de articulos.</p>
 

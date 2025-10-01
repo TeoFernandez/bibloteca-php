@@ -1,4 +1,6 @@
-<?php require_once "../templates/partesuperior.php"; ?>
+<?php
+require_once "../templates/partesuperior.php"; 
+?>
     <h1>Prestamos</h1>
     <p>Bienvenido a la sección de préstamos. En esta sección podrás gestionar los préstamos de libros y productos.</p>
     <div class="btn-agregar-prestamo">

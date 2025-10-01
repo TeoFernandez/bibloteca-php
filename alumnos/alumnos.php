@@ -1,5 +1,6 @@
-<?php require_once "../templates/partesuperior.php" ?>
-
+<?php
+require_once "../templates/partesuperior.php" 
+?>
     <h1>Alumnos</h1>
     <p>Bienvenido a la sección de alumnos. Aquí podrás gestionar la información de los alumnos.</p>
 
@@ -39,12 +40,12 @@
                                 <input type="text" id="nombre" name="nombre" placeholder="Ingrese un Nombre" required>
                             </div>
                             <div class="mb-3">
-                                <label for="apellido">apellido</label>
+                                <label for="apellido">Apellido</label>
                                 <input type="text" id="apellido" name="apellido" placeholder="Ingrese un Apellido" required>
                             </div>
                             <div class="mb-3">
                                 <label for="carrera">Carrera</label>
-                                <input type="text" id="carrera" name="carrera" placeholder="Ingrese una Carrera" required>
+                                <select id="carrera" name="carrera" class="form-control" required></select>
                             </div>
                         </div>
                     </form>
@@ -68,40 +69,6 @@
     <script src="//cdn.datatables.net/2.3.3/js/dataTables.min.js"></script>
     <!-- Fontawesome -->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function(){
-            let accion = "";
-            let tabla = new DataTable ('#alumnos',{
-                dom: 'Bfrtip',
-                language: {
-                url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json'
-                },
-                ordering: false,
-                info: false,
-                responsive: true,
-                ajax:{
-                    url:'../ajax/alumnos.ajax.php',
-                    dataSrc: ''
-                },
-                columns: [
-                    { data: 'dni' },
-                    { data: 'nombre' },
-                    { data: 'apellido'},
-                    { data: 'carrera'},
-                    {
-                        data : 'null',
-                        render:function(data,type,row){
-                            return `<button class="btn btn-principal btneditar" data-bs-target="#miModal" data-bs-toggle="modal">
-                            <i class="fa-solid fa-pen"></i>
-                            </button>
-                            <button class ="btn btn-danger btneliminar">
-                            <i class="fa-solid fa-trash"></i>
-                            </button>
-                            `
-                        }
-                    }
-                ]
-            })
-        })
-    </script>
+
+    <script src="js/alumnos.js"></script>
 <?php require_once "../templates/parteinferior.php" ?>

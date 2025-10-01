@@ -1,4 +1,6 @@
-<?php require_once "../templates/partesuperior.php"; ?>
+<?php
+require_once "../templates/partesuperior.php"; 
+?>
 
     <h1>Libros</h1>
     
