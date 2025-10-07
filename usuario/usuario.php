@@ -31,13 +31,14 @@ require_once "../templates/partesuperior.php"
                 <div>
                     <form>
                         <div>
+                            <input type="hidden" id="id" name="id">
                             <div class="mb-3">
-                                <label for="usuario">Usuario</label>
-                                <input type="text" id="usuario" name="usuario" placeholder="Ingrese un Usuario" required>
+                                <label for="username">Usuario</label>
+                                <input type="text" id="username" name="username" placeholder="Ingrese un Usuario"  required>
                             </div>
                             <div class="mb-3">
                                 <label for="clave">Contraseña</label>
-                                <input type="text" id="clave" name="clave" placeholder="Ingrese una Contraseña" required>
+                                <input type="text" id="clave" name="clave" placeholder="Ingrese una Contraseña"  required>
                             </div>
                         </div>
                     </form>
@@ -51,55 +52,8 @@ require_once "../templates/partesuperior.php"
             </div>
         </div>
     </div>
-
-    <!-- 1. jQuery primero -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- SweetAlert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Data tables -->
-    <script src="//cdn.datatables.net/2.3.3/js/dataTables.min.js"></script>
-    <!-- Fontawesome -->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
     <script>
-        $(document).ready(function(){
-            let accion = "";
-            let tabla = new DataTable ('#usuario',{
-                dom: 'Bfrtip',
-                language: {
-                url: 'https://cdn.datatables.net/plug-ins/1.10.24/i18n/Spanish.json'
-                },
-                ordering: false,
-                info: false,
-                responsive: true,
-                ajax:{
-                    url:'../ajax/alumnos.ajax.php',
-                    dataSrc: ''
-                },
-                columns: [
-                    { data: 'id' },
-                    { data: 'usuario'},
-                    { data: 'clave'},
-                    {
-                        data : 'null',
-                        render:function(data,type,row){
-                            return `<button class="btn btn-principal btneditar" data-bs-target="#miModal" data-bs-toggle="modal">
-                            <i class="fa-solid fa-pen"></i>
-                            </button>
-                            <button class ="btn btn-danger btneliminar">
-                            <i class="fa-solid fa-trash"></i>
-                            </button>
-                            `
-                        }
-                    }
-                ]
-            })
-        })
-
     </script>
-
-
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/usuario.js"></script>
 <?php require_once "../templates/parteinferior.php" ?>

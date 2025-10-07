@@ -17,7 +17,6 @@ require_once "../templates/partesuperior.php";
                     <th>Autor</th>
                     <th>Editorial</th>
                     <th>ISBN</th>
-                    <th>Cantidad de Copias</th>
                     <th>Número de Inventario</th>
                     <th>Estado</th>
                 </tr>
@@ -36,6 +35,7 @@ require_once "../templates/partesuperior.php";
                 <div>
                     <form>
                         <div>
+                            <input type="hidden" id="id_libro" name="id_libro">
                             <div class="mb-3">
                                 <label for="titulo">Titulo</label>
                                 <input type="text" id="titulo" name="titulo" placeholder="Ingrese un Titulo" required>
@@ -53,12 +53,12 @@ require_once "../templates/partesuperior.php";
                                 <input type="number" id="ISBN" name="ISBN" placeholder="Ingrese una Numero de ISBN" required>
                             </div>
                             <div class="mb-3">
-                                <label for="copias">Cantidad de Copias</label>
-                                <input type="number" id="copias" name="copias" placeholder="Ingrese la cantidad de copias" required>
+                                <label for="numero_inventario">Número de Inventario</label>
+                                <input type="text" id="numero_inventario" name="numero_inventario" placeholder="Ingrese una Numero de inventario" required>
                             </div>
                             <div class="mb-3">
-                                <label for="numero_inventario">Número de Inventario</label>
-                                <input type="number" id="numero_inventario" name="numero_inventario" placeholder="Ingrese una Numero de inventario" required>
+                                <label for="estado">Estado</label>
+                                <select id="estado" name="estado" class="form-control" required></select>
                             </div>
                         </div>
                     </form>
@@ -71,20 +71,10 @@ require_once "../templates/partesuperior.php";
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 1. jQuery primero -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- SweetAlert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Data tables -->
-    <script src="//cdn.datatables.net/2.3.3/js/dataTables.min.js"></script>
-    <!-- Fontawesome -->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script>
-        
+    </div>        
     </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/libros.js"></script>
 
 <?php require_once "../templates/parteinferior.php"; ?>
 

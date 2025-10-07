@@ -64,7 +64,6 @@ require_once "../templates/partesuperior.php";
             </div>
         </div>
     </div>
-
-    
-
-<?php require_once "../templates/partesuperior.php"; ?>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/prestamos.js"></script>
+<?php require_once "../templates/parteinferior.php"; ?>
