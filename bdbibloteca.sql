@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2025 a las 03:05:30
+-- Tiempo de generación: 11-10-2025 a las 02:21:50
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -105,7 +105,6 @@ INSERT INTO `estado` (`id_estado`, `estado`, `descripcion`) VALUES
 (1, 'Disponible', 'Puede ser prestado'),
 (2, 'Prestado', 'Actualmente en uso'),
 (4, 'Dañado', 'En reparación o fuera de servicio'),
-(5, 'Mantenimiento', 'En proceso de revisión'),
 (6, 'reservado', 'Apartado por un alumno');
 
 -- --------------------------------------------------------
@@ -140,11 +139,10 @@ INSERT INTO `libros` (`id_libro`, `titulo`, `autor`, `editorial`, `ISBN`, `numer
 
 CREATE TABLE `prestamos` (
   `id_prestamos` int(11) NOT NULL,
-  `id_item` int(11) NOT NULL,
+  `id_libro` int(11) NOT NULL,
   `dni_alumno` varchar(20) NOT NULL,
   `fecha_prestamo` date NOT NULL,
-  `fecha_devolucion` date DEFAULT NULL,
-  `estado` int(11) NOT NULL
+  `fecha_devolucion` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -210,7 +208,7 @@ ALTER TABLE `libros`
 --
 ALTER TABLE `prestamos`
   ADD PRIMARY KEY (`id_prestamos`),
-  ADD KEY `id_tem2` (`id_item`),
+  ADD KEY `id_tem2` (`id_libro`),
   ADD KEY `dni` (`dni_alumno`);
 
 --
@@ -286,8 +284,7 @@ ALTER TABLE `libros`
 --
 ALTER TABLE `prestamos`
   ADD CONSTRAINT `dni` FOREIGN KEY (`dni_alumno`) REFERENCES `alumnos` (`dni`),
-  ADD CONSTRAINT `id_item` FOREIGN KEY (`id_item`) REFERENCES `articulos` (`id_articulo`),
-  ADD CONSTRAINT `id_tem2` FOREIGN KEY (`id_item`) REFERENCES `libros` (`id_libro`);
+  ADD CONSTRAINT `id_tem2` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id_libro`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

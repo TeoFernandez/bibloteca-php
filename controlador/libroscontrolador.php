@@ -5,6 +5,10 @@ class controladorlibros{
         $respuesta = librosmodelo::mdlmostrarlibros();
         return $respuesta;
     }
+    static public function ctrmostrarlibrosprestamos(){
+        $respuesta = librosmodelo::mdlmostrarlibrosprestamos();
+        return $respuesta;
+    }
     static public function ctragregarlibros($titulo,$autor,$editorial,$ISBN,$numero_inventario,$estado){
         $respuesta = librosmodelo::mdlagregarlibro($titulo,$autor,$editorial,$ISBN,$numero_inventario,$estado);
         return $respuesta;

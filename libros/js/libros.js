@@ -55,8 +55,7 @@ $(document).ready(function(){
                 console.error('Error al cargar los estado:', error);
                 alert('Error al cargar los estado.');
             }
-        });
-        
+        });   
     }
     $('#libros tbody').on('click','.btneditar', function(){
         //let tabla = $('#alumnos').DataTable();

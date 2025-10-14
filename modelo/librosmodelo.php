@@ -8,6 +8,13 @@ class librosmodelo{
         $st -> execute();
         return $st -> fetchAll(PDO::FETCH_ASSOC);
     }
+    static public function mdlmostrarlibrosprestamos(){
+        $st = conexion::conectar() -> prepare("SELECT libros.id_libro,libros.titulo
+                                            FROM libros
+                                            WHERE libros.estado=1");
+        $st -> execute();
+        return $st -> fetchAll(PDO::FETCH_ASSOC);
+    }
     static public function mdlagregarlibro($titulo,$autor,$editorial,$ISBN,$numero_inventario,$estado){
         $st = conexion::conectar() -> prepare("INSERT INTO libros(titulo,autor,editorial,ISBN,numero_inventario,estado) 
                                             VALUES(:titulo,:autor,:editorial,:ISBN,:numero_inventario,:estado)");
