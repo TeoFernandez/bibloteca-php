@@ -5,7 +5,10 @@ class controladorarticulos{
         $respuesta = articulosmodelo::mdlmostrararticulos();
         return $respuesta;
     }
-
+    static public function ctrmostrararticulosprestamos(){
+        $respuesta = articulosmodelo::mdlmostrararticulosprestamos();
+        return $respuesta;
+    }
     static public function ctragregararticulo($articulo,$detalle,$numero_inventario,$estado){
         $respuesta = articulosmodelo::mdlagregararticulo($articulo,$detalle,$numero_inventario,$estado);
         return $respuesta;

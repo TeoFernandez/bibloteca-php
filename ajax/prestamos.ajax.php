@@ -19,7 +19,6 @@ class prestamos{
     public function devolverprestamo(){
         $respuesta = controladorprestamos::ctrdevolverprestamo($this -> id_prestamos,$this -> id_libro);
         echo json_encode($respuesta);
-
     }
     public function eliminarprestamo(){
         $respuesta = controladorprestamos::ctreliminarprestamos($this -> id_prestamos);

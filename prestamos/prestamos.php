@@ -1,7 +1,7 @@
 <?php
 require_once "../templates/partesuperior.php"; 
 ?>
-    <h1>Prestamos</h1>
+    <h1>Prestamos Libros</h1>
     <p>Bienvenido a la sección de préstamos. En esta sección podrás gestionar los préstamos de libros y productos.</p>
     <div class="btn-agregar-prestamo">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal">Agregar Prestamo</button>
@@ -10,12 +10,14 @@ require_once "../templates/partesuperior.php";
         <table id="prestamos" class="display" style="width:100%">
             <thead>
                 <tr>
+                    <th style="display:none;">ID</th>
                     <th>Titulo</th>
                     <th>Nombre Alumno</th>
                     <th>Apellido Alumno</th>
                     <th>Fecha del Prestamo</th>
                     <th>Fecha de Devolucion</th>
                     <th>Estado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
         </table>
@@ -33,7 +35,6 @@ require_once "../templates/partesuperior.php";
                 <div>
                     <form>
                         <div>
-
                             <input type="hidden" id="id_prestamos" name="id_prestamos">
                             <div class="mb-3">
                                 <label for="id_libro">Libro</label>

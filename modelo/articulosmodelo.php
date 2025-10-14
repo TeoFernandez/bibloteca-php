@@ -8,6 +8,14 @@ class articulosmodelo{
         $st -> execute();
         return $st -> fetchAll(PDO::FETCH_ASSOC);
     }
+
+    static public function mdlmostrararticulosprestamos(){
+        $st = conexion::conectar() -> prepare("SELECT articulos.id_articulo,articulos.articulo
+                                            FROM articulos
+                                            WHERE articulos.estado=1");
+        $st -> execute();
+        return $st -> fetchAll(PDO::FETCH_ASSOC);
+    }
     static public function mdlagregararticulo($articulo,$detalle,$numero_inventario,$estado){
         $st = conexion::conectar() -> prepare("INSERT INTO articulos(articulo,detalle,numero_inventario,estado) VALUES(:articulo,:detalle,:numero_inventario,:estado)");
         $st -> bindParam(":articulo",$articulo,PDO::PARAM_STR);

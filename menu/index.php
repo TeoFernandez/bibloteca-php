@@ -1,9 +1,7 @@
 <?php require_once "../templates/partesuperior.php" ?>
 
-    <h1>Inicio</h1>
+    <h1>Panel de Control</h1>
     <p>Bienvenido a la biblioteca</p>
-    <p>En esta sección podrás gestionar los préstamos de libros y productos.</p>
-    <p>Selecciona una de las siguientes opciones:</p>
 
     <div>
         <h3>📚 Libros más prestados</h3>
