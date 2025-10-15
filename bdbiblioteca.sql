@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2025 a las 02:21:50
+-- Tiempo de generación: 15-10-2025 a las 20:57:47
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alumnos` (
   `dni` varchar(20) NOT NULL,
-  `nombre` text NOT NULL,
-  `apellido` text NOT NULL,
+  `nombre` varchar(25) NOT NULL,
+  `apellido` varchar(25) NOT NULL,
   `carrera` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,6 +39,7 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`dni`, `nombre`, `apellido`, `carrera`) VALUES
+('40192583', 'Yamila', 'Chavez', 1),
 ('42089516', 'Nicolas', 'Garcia', 2),
 ('45678123', 'Teo ', 'Fernandez', 2),
 ('47912568', 'Karina', 'Diaz', 1);
@@ -62,7 +63,9 @@ CREATE TABLE `articulos` (
 --
 
 INSERT INTO `articulos` (`id_articulo`, `articulo`, `detalle`, `numero_inventario`, `estado`) VALUES
-(1, 'Botas de Seguridad', 'Las botas de Seguridad que se componen de puntera de acero y plantilla anti perforante. ', 'ART-200', 1);
+(1, 'Botas de Seguridad', 'Las botas de Seguridad que se componen de puntera de acero y plantilla anti perforante. ', 'ART-200', 1),
+(5, 'Gafas de Seguridad', 'Las gafas de seguridad son fundamentales para proteger los ojos frente a diversos riesgos laborales', 'ART-100', 1),
+(6, 'Guantes de Seguridad', 'Los guantes de seguridad diseñados para proteger las manos contra riesgos', 'ART-99', 4);
 
 -- --------------------------------------------------------
 
@@ -72,7 +75,7 @@ INSERT INTO `articulos` (`id_articulo`, `articulo`, `detalle`, `numero_inventari
 
 CREATE TABLE `carreras` (
   `id_carrera` int(11) NOT NULL,
-  `carrera` text NOT NULL
+  `carrera` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -80,10 +83,9 @@ CREATE TABLE `carreras` (
 --
 
 INSERT INTO `carreras` (`id_carrera`, `carrera`) VALUES
-(1, 'Tecnicatura en Seguridad y Higiene'),
-(2, 'Tecnicatura en Desarrollo de Software'),
-(3, 'Tecnicatura en Produccion Agricola Ganadera'),
-(4, 'Tecnicatura en Desarrollo de Productos Mecanicos');
+(1, 'Tecnicatura Superior en Seguridad e Higiene'),
+(2, 'Tecnicatura Superior en Diseño y Desarrollo de productos mecánicos'),
+(4, 'Tecnicatura Superior en Desarrollo de Software');
 
 -- --------------------------------------------------------
 
@@ -105,7 +107,7 @@ INSERT INTO `estado` (`id_estado`, `estado`, `descripcion`) VALUES
 (1, 'Disponible', 'Puede ser prestado'),
 (2, 'Prestado', 'Actualmente en uso'),
 (4, 'Dañado', 'En reparación o fuera de servicio'),
-(6, 'reservado', 'Apartado por un alumno');
+(6, 'Atrasado', 'No fue devuelto');
 
 -- --------------------------------------------------------
 
@@ -129,7 +131,8 @@ CREATE TABLE `libros` (
 
 INSERT INTO `libros` (`id_libro`, `titulo`, `autor`, `editorial`, `ISBN`, `numero_inventario`, `estado`) VALUES
 (1, 'Harry Potter y la piedra filosofal', 'J. K. Rowling', 'Bloomsbury', '9789878000404', 'ART-001', 1),
-(2, 'El Señor de los Anillos: La Comunidad del Anillo', 'J. R. R. Tolkien', 'George Allen & Unwin', '9789505472710', 'ART-100', 2);
+(2, 'El Señor de los Anillos: La Comunidad del Anillo', 'J. R. R. Tolkien', 'George Allen & Unwin', '9789505472710', 'ART-100', 1),
+(5, 'El Caballero de la Armadura Oxidada', 'Robert Fisher', 'Ediciones Obelisco', '9788497772303', 'ART-230', 2);
 
 -- --------------------------------------------------------
 
@@ -144,6 +147,41 @@ CREATE TABLE `prestamos` (
   `fecha_prestamo` date NOT NULL,
   `fecha_devolucion` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `prestamos`
+--
+
+INSERT INTO `prestamos` (`id_prestamos`, `id_libro`, `dni_alumno`, `fecha_prestamo`, `fecha_devolucion`) VALUES
+(31, 1, '42089516', '2025-10-12', '2025-10-12'),
+(32, 2, '42089516', '2025-10-12', '2025-10-12'),
+(33, 1, '42089516', '2025-10-12', '2025-10-12'),
+(34, 1, '42089516', '2025-10-12', '2025-10-12'),
+(35, 1, '42089516', '2025-10-12', '2025-10-12'),
+(37, 2, '42089516', '2025-10-12', '2025-10-14'),
+(38, 5, '42089516', '2025-10-13', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `prestamos_articulos`
+--
+
+CREATE TABLE `prestamos_articulos` (
+  `id_prestamos_articulos` int(11) NOT NULL,
+  `id_articulo` int(11) NOT NULL,
+  `dni_alumno` varchar(20) NOT NULL,
+  `fecha_prestamo` date NOT NULL,
+  `fecha_devolucion` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `prestamos_articulos`
+--
+
+INSERT INTO `prestamos_articulos` (`id_prestamos_articulos`, `id_articulo`, `dni_alumno`, `fecha_prestamo`, `fecha_devolucion`) VALUES
+(2, 1, '42089516', '2025-10-14', '2025-10-14'),
+(3, 5, '42089516', '2025-10-14', '2025-10-14');
 
 -- --------------------------------------------------------
 
@@ -212,6 +250,14 @@ ALTER TABLE `prestamos`
   ADD KEY `dni` (`dni_alumno`);
 
 --
+-- Indices de la tabla `prestamos_articulos`
+--
+ALTER TABLE `prestamos_articulos`
+  ADD PRIMARY KEY (`id_prestamos_articulos`),
+  ADD KEY `articulo2` (`id_articulo`),
+  ADD KEY `dni_alumno2` (`dni_alumno`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -225,7 +271,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `carreras`
@@ -243,13 +289,19 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `id_prestamos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_prestamos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT de la tabla `prestamos_articulos`
+--
+ALTER TABLE `prestamos_articulos`
+  MODIFY `id_prestamos_articulos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -285,6 +337,13 @@ ALTER TABLE `libros`
 ALTER TABLE `prestamos`
   ADD CONSTRAINT `dni` FOREIGN KEY (`dni_alumno`) REFERENCES `alumnos` (`dni`),
   ADD CONSTRAINT `id_tem2` FOREIGN KEY (`id_libro`) REFERENCES `libros` (`id_libro`);
+
+--
+-- Filtros para la tabla `prestamos_articulos`
+--
+ALTER TABLE `prestamos_articulos`
+  ADD CONSTRAINT `articulo2` FOREIGN KEY (`id_articulo`) REFERENCES `articulos` (`id_articulo`),
+  ADD CONSTRAINT `dni_alumno2` FOREIGN KEY (`dni_alumno`) REFERENCES `alumnos` (`dni`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="login.css">
 <?php
-
-include("modelo/conexion.php");
+require_once "modelo/conexion.php";
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

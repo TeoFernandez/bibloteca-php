@@ -1,8 +1,8 @@
-<?php require_once "../templates/partesuperior.php" ?>
-
+<?php
+require_once "../templates/partesuperior.php"
+?>
     <h1>Panel de Control</h1>
     <p>Bienvenido a la biblioteca</p>
-
     <div>
         <h3>📚 Libros más prestados</h3>
         <canvas id="graficolibros" style="width:100%;max-width:700px"></canvas>
