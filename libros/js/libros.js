@@ -58,7 +58,6 @@ $(document).ready(function(){
         });   
     }
     $('#libros tbody').on('click','.btneditar', function(){
-        //let tabla = $('#alumnos').DataTable();
         let data = tabla.row($(this).parents('tr')).data()
         accion = "modificar";
 
